@@ -23,8 +23,8 @@ export default class DeleteImageBtn extends React.Component {
   onVisibilityChanged = (visibleBlock) => {
     const boundingRect = this.props.store.getItem('boundingRect');
     const position = visibleBlock ? {
-      top: (boundingRect.height + boundingRect.top + window.scrollY) - toolbarHeight,
-      left: boundingRect.left + window.scrollX + (boundingRect.width / 2),
+      top: (boundingRect.height + boundingRect.top) - (toolbarHeight * 1.25),
+      left: ((boundingRect.left + boundingRect.width) - (toolbarHeight * 0.5)) / 2,
       transform: 'translate(-50%) scale(1)',
       transition: 'transform 0.15s cubic-bezier(.3,1.2,.2,1)',
     } : { transform: 'translate(-50%) scale(0)' };

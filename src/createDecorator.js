@@ -15,8 +15,13 @@ export default ({ store }) => (WrappedComponent) => class BlockDeleteImg extends
       // TODO figure out if and how to achieve this without fetching the DOM node
       // eslint-disable-next-line react/no-find-dom-node
       const blockNode = ReactDOM.findDOMNode(this);
-      const boundingRect = blockNode.getBoundingClientRect();
-      store.updateItem('boundingRect', boundingRect);
+      const boundingRectReletiveToParent = {
+        top: blockNode.offsetTop,
+        left: blockNode.offsetLeft,
+        width: blockNode.offsetWidth,
+        height: blockNode.offsetHeight,
+      };
+      store.updateItem('boundingRect', boundingRectReletiveToParent);
       store.updateItem('visibleBlock', this.props.block.getKey());
       // Only set visibleBlock to null in case it's the current one. This is important
       // in case the focus directly switches from one block to the other. Then the

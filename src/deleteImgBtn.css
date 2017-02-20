@@ -9,6 +9,7 @@
   z-index: 2;
   box-sizing: border-box;
   padding: 6px 4px 0px 4px;
+  cursor: pointer;
 }
 
 .deleteImgBtn:after, .deleteImgBtn:before {
